@@ -1,0 +1,135 @@
+\documentclass[12pt,twoside]{article}
+% Français
+\usepackage[french]{babel}
+% Inclusion d'images
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+
+% Géométrie de la page
+\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm,bindingoffset=6mm]{geometry}
+% En tête et bas de page
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[RO,LE]{Saberduino}
+\fancyfoot{}
+\fancyfoot[LE,RO]{\thepage}
+\fancyfoot[CO,RE]{Bizel Edgar \& Phan Damien}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% Liens pour la table des matières
+\usepackage{hyperref}
+\hypersetup{colorlinks}
+
+\title{Saberduino}
+\author{Bizel Edgar \& Phan Damien}
+\date{3 décembre 2021}
+
+\begin{document}
+% Page de titre
+\begin{titlepage}
+	\begin{center}
+		\vspace*{1cm}
+
+		\Huge
+		\textbf{Saberduino}
+
+		\vspace{0.5cm}
+		\LARGE
+		Projet Arduino
+
+		\vspace{1.5cm}
+
+		\textbf{Bizel Edgar \& Phan Damien}
+
+		\vfill
+
+		\vspace{0.8cm}
+
+		\includegraphics[width=0.6\textwidth]{logo_polytech.png}
+
+		\vspace{0.8cm}
+
+		\Large
+		Électronique
+
+		Polytech Nice Sophia
+
+		3 décembre 2021
+
+	\end{center}
+\end{titlepage}
+
+\tableofcontents
+
+\newpage
+
+\section{Introduction}%
+\label{sec:introduction}
+
+\textbf{Saberduino} est un projet visant à créer un jeu vidéo sportif.
+
+Lorsque nous avons dû choisir notre projet Arduino, nous avons rapidement décidé qu'il
+s'agirait d'un jeu. Mais il aurait été dommage de se limiter à une simple console, alors
+que de nombreuses possibilités s'ouvraient à nous.
+
+Inspirés par le jeu de réalité virtuelle \href{https://store.steampowered.com/app/620980/Beat_Saber}{Beat
+Saber}, nous avons ainsi décidé d'utiliser les mouvements du corps pour contrôler le jeu.
+
+\section{Fonctionnalités}%
+\label{sec:fonctionnalites}
+
+\subsection{Principe du jeu}%
+\label{sub:principe_du_jeu}
+
+Un sabre à la main, nous devrons trancher les notes de musique qui arrivent à portée. La
+tâche n'est pas simple : chaque bloc doit être tranché dans une direction spécifique.
+
+Attention aux explosifs !
+
+\subsection{Liste des fonctions}%
+\label{sub:liste_des_fonctions}
+
+Séparons la liste en deux. Un Arduino sera utilisé pour le sabre, et un autre pour
+héberger le jeu.
+
+Pour le sabre :
+\begin{itemize}
+	\item Communiquer par Bluetooth
+	\item Signaler son inclinaison
+	\item Signaler la direction du mouvement (gauche vers droite, haut vers bas\ldots)
+	\item Éventuellement : vibrer ou émettre un signal sonore
+\end{itemize}
+Pour la console :
+\begin{itemize}
+	\item Faire tourner le jeu
+	\item Afficher le jeu : des cubes, marqués par une flèche indiquant la direction de
+		tranchage
+	\item Recevoir les informations du sabre et les traiter
+	\item Éventuellement : émettre de la musique
+\end{itemize}
+
+\section{Matériel}%
+\label{sec:materiel}
+
+Le matériel sera initialement composé des éléments suivants :
+\begin{itemize}
+	\item Deux Arduinos. Si l'Arduino Uno s'avère insuffisant pour afficher notre jeu à
+		une fréquence d'affichage correcte, nous nous tournerons vers
+		une alternative telle que \href{https://www.pjrc.com/store/teensy40.html}{Teensy}.
+	\item Un écran, de préférence en couleur. Sa définition sera comprise entre $96\times
+	120$ et $240 \times 320$.
+	\item Un émetteur et un récepteur bluetooth
+	\item Des capteurs tels que des accéléromètres et des gyroscopes, pour la détection du
+		mouvement
+	\item Nous pensons pouvoir nous en passer, mais une caméra et un émetteur infrarouge
+		pourraient être utiles afin de détecter la position du sabre.
+\end{itemize}
+
+\section{Planning}%
+\label{sec:planning}
+
+
+
+\end{document}
