@@ -3,7 +3,8 @@
 \usepackage[french]{babel}
 % Inclusion d'images
 \usepackage{graphicx}
-\graphicspath{ {images/} }
+% Inclusion de PDF
+\usepackage{pdfpages}
 
 % Géométrie de la page
 \usepackage[a4paper,width=150mm,top=25mm,bottom=25mm,bindingoffset=6mm]{geometry}
@@ -21,6 +22,9 @@
 % Liens pour la table des matières
 \usepackage{hyperref}
 \hypersetup{colorlinks}
+
+% Mode paysage
+\usepackage{pdflscape}
 
 \title{Saberduino}
 \author{Bizel Edgar \& Phan Damien}
@@ -61,9 +65,10 @@
 	\end{center}
 \end{titlepage}
 
+
 \tableofcontents
 
-\newpage
+\vspace{0.5cm}
 
 \section{Introduction}%
 \label{sec:introduction}
@@ -99,15 +104,14 @@ Pour le sabre :
 	\item Communiquer par Bluetooth
 	\item Signaler son inclinaison
 	\item Signaler la direction du mouvement (gauche vers droite, haut vers bas\ldots)
-	\item Éventuellement : vibrer ou émettre un signal sonore
+	\item Vibration lors du choc avec un bloc
 \end{itemize}
 Pour la console :
 \begin{itemize}
-	\item Faire tourner le jeu
 	\item Afficher le jeu : des cubes, marqués par une flèche indiquant la direction de
 		tranchage
 	\item Recevoir les informations du sabre et les traiter
-	\item Éventuellement : émettre de la musique
+	\item Émettre de la musique
 \end{itemize}
 
 \section{Matériel}%
@@ -123,13 +127,9 @@ Le matériel sera initialement composé des éléments suivants :
 	\item Un émetteur et un récepteur bluetooth
 	\item Des capteurs tels que des accéléromètres et des gyroscopes, pour la détection du
 		mouvement
+	\item Moteur à vibration
+	\item Haut parleur
 	\item Nous pensons pouvoir nous en passer, mais une caméra et un émetteur infrarouge
 		pourraient être utiles afin de détecter la position du sabre.
 \end{itemize}
-
-\section{Planning}%
-\label{sec:planning}
-
-
-
 \end{document}
