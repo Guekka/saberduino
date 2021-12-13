@@ -1,7 +1,7 @@
 #include "printer.hpp"
 
 Printer::Printer() {
-#ifdef AVR
+#ifndef SABERDUINO_DESKTOP_COMPUTER
     Serial.begin(9600);
 #endif
 }

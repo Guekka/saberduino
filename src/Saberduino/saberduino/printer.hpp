@@ -9,19 +9,19 @@ class Printer {
 
     template <typename T>
     void print(T val) {
-#ifdef AVR
-        Serial.print(val);
-#else
+#ifdef SABERDUINO_DESKTOP_COMPUTER
         std::cout << val;
+#else
+        Serial.print(val);
 #endif
     }
 
     template <typename T>
     void println(T val) {
-#ifdef AVR
-        Serial.println(val);
-#else
+#ifdef SABERDUINO_DESKTOP_COMPUTER
         std::cout << val << '\n';
+#else
+        Serial.println(val);
 #endif
     }
 };

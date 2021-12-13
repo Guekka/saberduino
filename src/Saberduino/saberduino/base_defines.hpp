@@ -1,11 +1,11 @@
 #ifndef SABERDUINO_BASE_DEFINES
 #define SABERDUINO_BASE_DEFINES
 
-#ifdef AVR  // Assume Arduino available
-#include "Arduino.h"
-#else
+#ifdef SABERDUINO_DESKTOP_COMPUTER  // Assume Arduino available
 #include <cstdint>
 #include <iostream>
+#else
+#include "Arduino.h"
 #endif
 
 struct Position {
