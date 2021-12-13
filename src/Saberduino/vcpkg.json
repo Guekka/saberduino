@@ -1,0 +1,12 @@
+{
+  "name": "saberduino",
+  "version-string": "1",
+  "features": {
+    "desktop": {
+      "description": "Use SFML for drawings",
+      "dependencies": [
+        "sfml"
+      ]
+    }
+  }
+}

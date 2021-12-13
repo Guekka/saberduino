@@ -16,11 +16,18 @@ add_library(saberduino
 
     saberduino/printer.hpp
     saberduino/printer.cpp
+
+    saberduino/display.hpp
+    saberduino/display.cpp
 )
 
 option(SABERDUINO_DESKTOP_COMPUTER "Use saberduino on a desktop computer" ON)
 if(${SABERDUINO_DESKTOP_COMPUTER})
     target_compile_definitions(saberduino PUBLIC SABERDUINO_DESKTOP_COMPUTER=1)
-    find_package(Qt5 COMPONENTS Core Widgets REQUIRED)
-    target_link_libraries(saberduino PRIVATE Qt5::Core Qt5::Widgets)
+
+    find_package(SFML COMPONENTS system window graphics CONFIG REQUIRED)
+    target_link_libraries(saberduino PUBLIC sfml-system sfml-graphics sfml-window)
 endif()
+
+add_executable(main main.cpp)
+target_link_libraries(main PRIVATE saberduino)
