@@ -21,12 +21,28 @@ void Level::start() {
 void Level::update(Display& display, Position pos) {
     cur_time_ = milli_scaled();
     for (auto block : blocks_) {
+        if (block.time < cur_time_) {
+            block = {};  // Mark block as available
+            continue;
+        }
+        if (pos_approx(block.pos, pos))
+            destroy_block(display, block);
+
         const auto diff = block.time - cur_time_;
-        if (diff > 0 && diff < to_millis_scaled(200))
+        if (diff < to_millis_scaled(200))
             display_block(display, block, diff);
     }
 }
 
+void Level::destroy_block(Display& display, Block& block) {
+    display.draw_pix(block.pos, 255, 0, 0);
+    block = {};
+}
+
 void Level::display_block(Display& display, Block block, uint16_t dt) {
     display.draw_pix(block.pos, 50, 100, 150);
+}
+
+bool Level::pos_approx(Position a, Position b) {
+    return a.x - b.x < Block::radius && a.y - b.y < Block::radius;
 }
