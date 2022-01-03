@@ -1,3 +1,5 @@
+#ifdef SABERDUINO_DESKTOP_COMPUTER
+
 #include "saberduino/display.hpp"
 #include "saberduino/level.hpp"
 #include "saberduino/saber.hpp"
@@ -7,8 +9,8 @@ Level level;
 Display display;
 
 const Block default_blocks[10] = {
-    Block{{4, 4}, 50},  Block{{5, 5}, 100}, Block{{6, 6}, 150},
-    Block{{7, 7}, 200}, Block{{8, 8}, 250},
+    Block{{4, 4}, 50},  Block{{8, 8}, 100}, Block{{11, 11}, 150},
+    Block{{4, 4}, 200}, Block{{8, 8}, 250},
 };
 
 void setup() {
@@ -29,3 +31,5 @@ int main() {
     while (true)
         loop();
 }
+
+#endif

@@ -4,6 +4,8 @@
 
 #ifdef SABERDUINO_DESKTOP_COMPUTER
 #include <SFML/Graphics.hpp>
+#else
+#include <RGBmatrixPanel.h>
 #endif
 
 class Display {
@@ -11,15 +13,20 @@ class Display {
     Display();
 
     bool begin_frame();
-    void draw_pix(Position pos, uint8_t r, uint8_t g, uint8_t b);
+    void draw_square(Position center, Color c, uint8_t size);
+    void draw_line(Position start, Position end, Color c);
     void end_frame();
 
-    static constexpr uint8_t len = 16;
+   private:
+    static constexpr uint8_t width = 64;
+    static constexpr uint8_t height = 32;
 #ifdef SABERDUINO_DESKTOP_COMPUTER
-    static constexpr uint8_t scale = 64;
+    static constexpr uint8_t scale = 16;
 
     sf::RenderWindow window_;
 #else
     static constexpr uint8_t scale = 1;
+    RGBmatrixPanel window_;
+
 #endif
 };
