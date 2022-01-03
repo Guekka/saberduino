@@ -2,6 +2,9 @@
 #include "display.hpp"
 #include "printer.hpp"
 
+constexpr Color kRed = {255, 0, 0};
+constexpr Color kBlue = {0, 255, 0};
+
 void Level::init() {
     printer.println("init level");
 }
@@ -35,12 +38,17 @@ void Level::update(Display& display, Position pos) {
 }
 
 void Level::destroy_block(Display& display, Block& block) {
-    display.draw_pix(block.pos, 255, 0, 0);
+    display.draw_square(block.pos, kBlue, 3);
+    const auto start = Position{static_cast<uint8_t>(block.pos.x - 1),
+                                static_cast<uint8_t>(block.pos.y - 1)};
+    const auto end = Position{static_cast<uint8_t>(block.pos.x + 1),
+                              static_cast<uint8_t>(block.pos.y + 1)};
+    display.draw_line(start, end, kRed);
     block = {};
 }
 
-void Level::display_block(Display& display, Block block, uint16_t dt) {
-    display.draw_pix(block.pos, 50, 100, 150);
+void Level::display_block(Display& display, Block block, uint64_t dt) {
+    display.draw_square(block.pos, kBlue, 3);
 }
 
 bool Level::pos_approx(Position a, Position b) {

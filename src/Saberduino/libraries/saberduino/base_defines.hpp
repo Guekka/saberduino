@@ -15,6 +15,12 @@ struct Position {
     uint8_t y;
 };
 
+struct Color {
+    uint8_t r;
+    uint8_t g;
+    uint8_t b;
+};
+
 inline uint16_t to_millis_scaled(uint64_t millis) {
     return static_cast<uint16_t>(millis / 32);
 }
