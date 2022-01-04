@@ -6,6 +6,9 @@ Phan Damien
 
 Durant la première heure, j'ai cherché des codes sur internet sur l'utilisation de la puce GY-521 (accéléromètre/gyroscope) afin de m'aider à la compréhension de l'appareil.
 
+J'ai alors compris que l'on utilise une bibliothèque nommée Wire.h afin de pouvoir obtenir les données de la puce GY-521.
+J'utilise alors le code suivant :  ![](C:\Utilisateurs\Damien\Bureau)
+
 ## Problèmes majeurs
 
 Malgrès l'obtention de valeurs concrètes, je ne comprends pas comment peut-on determiner une quelconque position ou un certain mouvement autre qu'une simple inclination.
@@ -19,3 +22,4 @@ Cela nous mène au problème suivant : l'interprétation des valeurs.
 Même sans valeurs que l'on va déterminer d'erronées, je ne vois pas comment créer un potenciel point qui puisse se déplacer avec les mouvements d'une "télécommande".
 
 ## Potentielles solutions
+
