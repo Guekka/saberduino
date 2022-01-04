@@ -41,10 +41,8 @@ void Display::draw_line(Position start, Position end, Color c) {
     end.y *= scale;
 
     sf::Vertex line[] = {
-        sf::Vertex(sf::Vector2f(scale * start.x, scale * start.y),
-                   sf::Color(c.r, c.g, c.b)),
-        sf::Vertex(sf::Vector2f(scale * end.x, scale * end.y),
-                   sf::Color(c.r, c.g, c.b))};
+        sf::Vertex(sf::Vector2f(start.x, start.y), sf::Color(c.r, c.g, c.b)),
+        sf::Vertex(sf::Vector2f(end.x, end.y), sf::Color(c.r, c.g, c.b))};
 
     window_.draw(line, 2, sf::Lines);
 }
