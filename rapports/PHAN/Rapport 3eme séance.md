@@ -7,7 +7,9 @@ Phan Damien
 Durant la première heure, j'ai cherché des codes sur internet sur l'utilisation de la puce GY-521 (accéléromètre/gyroscope) afin de m'aider à la compréhension de l'appareil.
 
 J'ai alors compris que l'on utilise une bibliothèque nommée Wire.h afin de pouvoir obtenir les données de la puce GY-521.
-J'utilise alors le code suivant :  ![code](./res/Code_accgyro.png)
+J'utilise alors le code suivant : 
+ 
+![code](./res/Code_accgyro.png)
 
 ## Problèmes majeurs
 
@@ -23,3 +25,4 @@ Même sans valeurs que l'on va déterminer d'erronées, je ne vois pas comment c
 
 ## Potentielles solutions
 
+Si le problème persiste, je pourrais simplifier la tâche en ne cherchant qu'à obtenir une certaine direction plutôt que la position exacte de l'objet.
