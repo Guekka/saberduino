@@ -7,7 +7,7 @@ Phan Damien
 Durant la première heure, j'ai cherché des codes sur internet sur l'utilisation de la puce GY-521 (accéléromètre/gyroscope) afin de m'aider à la compréhension de l'appareil.
 
 J'ai alors compris que l'on utilise une bibliothèque nommée Wire.h afin de pouvoir obtenir les données de la puce GY-521.
-J'utilise alors le code suivant :  ![](C:\Utilisateurs\Damien\Bureau)
+J'utilise alors le code suivant :  ![image](C:\Utilisateurs\Damien\Bureau)
 
 ## Problèmes majeurs
 
