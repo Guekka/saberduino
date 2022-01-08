@@ -21,11 +21,13 @@ struct Color {
     uint8_t b;
 };
 
-inline uint16_t to_millis_scaled(uint64_t millis) {
+constexpr uint16_t to_millis_scaled(uint64_t millis)
+{
     return static_cast<uint16_t>(millis / 32);
 }
 
-inline uint64_t milli_scaled() {
+inline uint16_t milli_scaled()
+{
 #ifdef SABERDUINO_DESKTOP_COMPUTER
     using namespace std::chrono;
     static const auto start = steady_clock::now();
@@ -33,7 +35,7 @@ inline uint64_t milli_scaled() {
     const auto millis = duration_cast<milliseconds>(now - start);
     return to_millis_scaled(millis.count());
 #else
-    return millis() / 20;
+    return to_millis_scaled(millis());
 #endif
 }
 
