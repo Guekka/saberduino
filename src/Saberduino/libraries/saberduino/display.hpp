@@ -12,12 +12,14 @@ class Display {
    public:
     Display();
 
+    void init();
+
     bool begin_frame();
     void draw_square(Position center, Color c, uint8_t size);
     void draw_line(Position start, Position end, Color c);
     void end_frame();
 
-   private:
+private:
     static constexpr uint8_t width = 64;
     static constexpr uint8_t height = 32;
 #ifdef SABERDUINO_DESKTOP_COMPUTER
@@ -27,6 +29,5 @@ class Display {
 #else
     static constexpr uint8_t scale = 1;
     RGBmatrixPanel window_;
-
 #endif
 };

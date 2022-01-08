@@ -4,6 +4,7 @@
 Display::Display()
     : window_(sf::VideoMode(width * scale, height * scale), "Saberduino") {}
 
+void Display::init() {}
 bool Display::begin_frame() {
     if (!window_.isOpen())
         return false;
@@ -59,7 +60,10 @@ constexpr int8_t B = A1;
 constexpr int8_t C = A2;
 constexpr int8_t D = A3;
 
-Display::Display() : window_(A, B, C, D, CLK, LAT, OE, true, 64) {
+Display::Display() : window_(A, B, C, D, CLK, LAT, OE, true, 64) {}
+
+void Display::init()
+{
     window_.begin();
 }
 
