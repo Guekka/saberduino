@@ -14,6 +14,5 @@ Position Saber::position() {
     const auto raw = sf::Mouse::getPosition();
 #endif
 
-    printer.println("position saber");
     return Position{0, 0};
 }
