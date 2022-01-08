@@ -29,7 +29,7 @@ void Display::draw_square(Position center, Color c, uint8_t size) {
     size *= scale;
 
     sf::RectangleShape shape(sf::Vector2f(size, size));
-    shape.setPosition(sf::Vector2f(center.x + size / 2, center.y + size / 2));
+    shape.setPosition(sf::Vector2f(center.x - size / 2, center.y - size / 2));
     shape.setFillColor(sf::Color(c.r, c.g, c.b));
     window_.draw(shape);
 }
