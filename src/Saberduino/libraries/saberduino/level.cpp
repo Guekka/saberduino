@@ -23,7 +23,7 @@ void Level::start() {
 
 void Level::update(Display& display, Position pos) {
     cur_time_ = milli_scaled();
-    for (auto block : blocks_) {
+    for (auto &block : blocks_) {
         if (block.time < cur_time_) {
             block = {};  // Mark block as available
             continue;
