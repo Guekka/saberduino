@@ -5,6 +5,8 @@
 constexpr Color kRed = {255, 0, 0};
 constexpr Color kBlue = {0, 0, 255};
 
+constexpr uint16_t kMaxDelta = to_millis_scaled(2000);
+
 void Level::init() {
     printer.println("init level");
 }
@@ -31,10 +33,16 @@ void Level::update(Display& display, Position pos) {
         if (pos_approx(block.pos, pos))
             destroy_block(display, block);
 
+        // block.time always greater than cur_time
         const auto diff = block.time - cur_time_;
-        if (diff < to_millis_scaled(200))
+        if (diff < kMaxDelta)
             display_block(display, block, diff);
     }
+}
+
+uint16_t map(int16_t x, int16_t in_min, int16_t in_max, int16_t out_min, int16_t out_max)
+{
+    return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
 
 void Level::destroy_block(Display& display, Block& block) {
@@ -47,8 +55,9 @@ void Level::destroy_block(Display& display, Block& block) {
     block = {};
 }
 
-void Level::display_block(Display& display, Block block, uint64_t dt) {
-    display.draw_square(block.pos, kBlue, 3);
+void Level::display_block(Display &display, Block block, uint16_t dt)
+{
+    display.draw_square(block.pos, kBlue, static_cast<uint8_t>(map(dt, kMaxDelta, 0, 5, 10)));
 }
 
 bool Level::pos_approx(Position a, Position b) {

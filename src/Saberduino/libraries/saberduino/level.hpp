@@ -21,10 +21,10 @@ class Level {
 
    private:
     Block blocks_[10];
-    uint64_t cur_time_{};
+    uint16_t cur_time_{};
 
     void destroy_block(Display& display, Block& block);
-    void display_block(Display& display, Block block, uint64_t dt);
+    void display_block(Display &display, Block block, uint16_t dt);
     bool pos_approx(Position a, Position b);
 };
 #endif
