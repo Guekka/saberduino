@@ -3,7 +3,7 @@
 #include "printer.hpp"
 
 constexpr Color kRed = {255, 0, 0};
-constexpr Color kBlue = {0, 255, 0};
+constexpr Color kBlue = {0, 0, 255};
 
 void Level::init() {
     printer.println("init level");
