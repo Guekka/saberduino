@@ -69,7 +69,10 @@ bool Display::begin_frame() {
 }
 
 void Display::draw_square(Position center, Color c, uint8_t size) {
-    window_.drawRect(center.x + size / 2, center.y + size / 2, size, size,
+    window_.drawRect(center.x - size / 2,
+                     center.y - size / 2,
+                     size,
+                     size,
                      window_.Color888(c.r, c.g, c.b));
 }
 
