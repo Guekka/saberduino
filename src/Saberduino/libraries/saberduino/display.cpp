@@ -31,6 +31,19 @@ void Display::draw_square(Position center, Color c, uint8_t size) {
 
     sf::RectangleShape shape(sf::Vector2f(size, size));
     shape.setPosition(sf::Vector2f(center.x - size / 2, center.y - size / 2));
+    shape.setOutlineColor(sf::Color(c.r, c.g, c.b));
+    shape.setOutlineThickness(3);
+    window_.draw(shape);
+}
+
+void Display::fill_rect(Position topleft, Color c, uint8_t w, uint8_t h) {
+    topleft.x *= scale;
+    topleft.y *= scale;
+    w *= scale;
+    h *= scale;
+
+    sf::RectangleShape shape(sf::Vector2f(w, h));
+    shape.setPosition(sf::Vector2f(topleft.x, topleft.y));
     shape.setFillColor(sf::Color(c.r, c.g, c.b));
     window_.draw(shape);
 }
@@ -73,10 +86,12 @@ bool Display::begin_frame() {
 }
 
 void Display::draw_square(Position center, Color c, uint8_t size) {
-    window_.drawRect(center.x - size / 2,
-                     center.y - size / 2,
-                     size,
-                     size,
+    window_.drawRect(center.x - size / 2, center.y - size / 2, size, size,
+                     window_.Color888(c.r, c.g, c.b));
+}
+
+void Display::fill_rect(Position topleft, Color c, uint8_t w, uint8_t h) {
+    window_.fillRect(topleft.x, topleft.y, w, h,
                      window_.Color888(c.r, c.g, c.b));
 }
 

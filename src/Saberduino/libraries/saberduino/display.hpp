@@ -16,6 +16,7 @@ class Display {
 
     bool begin_frame();
     void draw_square(Position center, Color c, uint8_t size);
+    void fill_rect(Position topleft, Color c, uint8_t w, uint8_t h);
     void draw_line(Position start, Position end, Color c);
     void end_frame();
 
