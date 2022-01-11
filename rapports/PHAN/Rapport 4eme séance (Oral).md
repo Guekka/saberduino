@@ -18,3 +18,4 @@ Pour cela, il suffit de remplacer dans la formule les différentes variables afi
 
 angle=0.98*(angle+float(gy)*0.01/131) + 0.02*atan2((double)ax,(double)az)*180/PI;
 
+Ici on a *gy, ax* et *az* en tant que variables.
