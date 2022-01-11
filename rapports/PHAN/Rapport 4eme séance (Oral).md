@@ -14,7 +14,7 @@ Donc grâce au code du site [suivant](http://gilles.thebault.free.fr/spip.php?ar
 
 Cependant, pour pouvoir trouver la position de notre objet que l'on va utiliser pour donner des coups, on va devoir aussi pouvoir calculer les autres angles (pitch, roll, yaw).
 
-Pour cela, il suffit de remplacer dans : 
+Pour cela, il suffit de remplacer dans la formule les différentes variables afin d'obtenir l'angle désiré :
+
 angle=0.98*(angle+float(gy)*0.01/131) + 0.02*atan2((double)ax,(double)az)*180/PI;
 
-les différentes variables afin d'obtenir l'angle désiré.
