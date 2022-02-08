@@ -61,6 +61,42 @@ void Display::draw_line(Position start, Position end, Color c) {
     window_.draw(line, 2, sf::Lines);
 }
 
+void Display::draw_cube(Position topleft,
+                        uint8_t size,
+                        Color frontc,
+                        Color backc) {
+    auto x = topleft.x;
+    auto y = topleft.y;
+    auto x2 = static_cast<uint8_t>(x + 2);
+    auto y2 = static_cast<uint8_t>(y - 2);
+
+    // Back square
+    fill_rect({x2, y2}, backc, size, size);
+    // Front square (overwrites back)
+    fill_rect({x, y}, frontc, size, size);
+
+    // Rest
+    sf::ConvexShape topface;
+    topface.setPointCount(4);
+    topface.setPoint(
+        0, {static_cast<float>(x * scale), static_cast<float>(y * scale)});
+    topface.setPoint(
+        1, {static_cast<float>(x * scale), static_cast<float>(y * scale)});
+    topface.setPoint(
+        2, {static_cast<float>(x * scale), static_cast<float>(y * scale)});
+    topface.setPoint(3, {static_cast<float>(x), static_cast<float>(y)});
+
+    draw_line({static_cast<uint8_t>(x + 1), static_cast<uint8_t>(y - 1)},
+              {x2, y2}, backc);
+    /*
+    draw_line(
+        {static_cast<uint8_t>(x + size), static_cast<uint8_t>(y + size - 2)},
+        {static_cast<uint8_t>(x2 + size - 1),
+         static_cast<uint8_t>(y2 + size - 1)},
+        backc);
+    */
+}
+
 void Display::end_frame() {
     window_.display();
 }
@@ -103,7 +139,6 @@ void Display::draw_line(Position start, Position end, Color c) {
 void Display::end_frame() {
     window_.swapBuffers(false);
 }
-#endif
 
 void Display::draw_cube(Position topleft,
                         uint8_t size,
@@ -128,3 +163,5 @@ void Display::draw_cube(Position topleft,
          static_cast<uint8_t>(y2 + size - 1)},
         backc);
 }
+
+#endif
