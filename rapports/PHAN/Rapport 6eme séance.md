@@ -58,3 +58,10 @@ Donc dans la pratique, on obtient un chaîne de nombres que l'on va pouvoir par 
 
 Cependant, cette façon de procéder n'est pas encore la plus précise.
 Il faudrait pour cela que je réduises au maximum l'intervalle afin de réagir au moindre mouvement et donc d'attribuer cela à un certain mouvement.
+
+
+## Objectifs prochain cours 
+
+Pouvoir modéliser un modèle du sabre afin de pouvoir le construire.
+
+Connecter en bluetooth le module avec l'écran.
