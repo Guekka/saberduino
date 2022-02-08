@@ -4,6 +4,7 @@
 #include "base_defines.hpp"
 
 struct Block {
+    bool is_bomb;
     Position pos;
     uint16_t time;
     static constexpr uint8_t radius = 6;

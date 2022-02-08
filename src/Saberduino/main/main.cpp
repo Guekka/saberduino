@@ -8,9 +8,10 @@ Saber saber;
 Level level;
 Display display;
 
-const Block default_blocks[10] = {
-    Block{{4, 4}, 50},  Block{{8, 8}, 100}, Block{{11, 11}, 150},
-    Block{{4, 4}, 200}, Block{{8, 8}, 250},
+Block default_blocks[10] = {
+    Block{false, {8, 8}, 100},  Block{false, {8, 12}, 200},
+    Block{false, {16, 8}, 300}, Block{false, {16, 12}, 400},
+    Block{false, {8, 8}, 500},
 };
 
 void setup() {
