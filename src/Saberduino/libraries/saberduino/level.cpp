@@ -16,8 +16,10 @@ void Level::load(const char* filename) {
     printer.println("load level");
 }
 
-void Level::load(const Block blocks[]) {
-    memcpy(blocks_, blocks, 10 * sizeof(Block));
+void Level::load(Block* blocks, uint16_t block_count) {
+    blocks_ = blocks;
+    block_count_ = block_count;
+
 }
 
 void Level::start() {
@@ -26,9 +28,9 @@ void Level::start() {
 
 void Level::update(Display& display, Position pos) {
     cur_time_ = milli_scaled();
-    for (auto &block : blocks_) {
+    for (uint16_t i = 0; i < block_count_; ++i) {
+        auto& block = blocks_[i];
         if (block.time < cur_time_) {
-            block = {};  // Mark block as available
             continue;
         }
         if (pos_approx(block.pos, pos))

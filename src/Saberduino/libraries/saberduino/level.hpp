@@ -15,12 +15,13 @@ class Level {
    public:
     void init();
     void load(const char* filename);
-    void load(const Block blocks[10]);
+    void load(Block* blocks, uint16_t block_count);
     void start();
     void update(Display& display, Position pos);
 
    private:
-    Block blocks_[10];
+    Block *blocks_;
+    uint16_t block_count_;
     uint16_t cur_time_{};
 
     void destroy_block(Display& display, Block& block);

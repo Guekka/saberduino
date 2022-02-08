@@ -16,7 +16,7 @@ const Block default_blocks[10] = {
 void setup() {
     saber.init();
     level.init();
-    level.load(default_blocks);
+    level.load(default_blocks, 5);
     level.start();
 }
 
