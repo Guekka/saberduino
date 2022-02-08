@@ -4,9 +4,9 @@ Phan Damien
 
 ## Obtention de nouvelles données 
 
-Grâce au code de l'exemple à peine modifié de la bibliothèque de MP6050_DMP6, on obtient des données en fonction de l'inclinaison du module MP6050.
+Grâce au `code` de l'exemple à peine modifié de la bibliothèque de MP6050_DMP6, on obtient des données en fonction de l'inclinaison du module MP6050.
 
-```
+``` php
 
 #define INTERRUPT_PIN 2  // use pin 2 on Arduino Uno & most boards
 #define LED_PIN 13 // (Arduino is 13, Teensy is 11, Teensy++ is 6)
