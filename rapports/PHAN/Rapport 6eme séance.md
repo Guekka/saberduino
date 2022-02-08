@@ -53,6 +53,7 @@ On va alors essayer de restreindre un intervalle en yaw,pitch ou roll afin de po
 
 ```
 Donc dans la pratique, on obtient un chaîne de nombres que l'on va pouvoir par la suite envoyer grâce au bluetooth vers le programme permettant de bouger le curseur en fonction des mouvements de poignée du joueur.
+
 ![Courte Vidéo d'exemple](./res/Test_direction.mov)
 
 Cependant, cette façon de procéder n'est pas encore la plus précise.
