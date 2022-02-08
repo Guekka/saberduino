@@ -1,22 +1,23 @@
-#ifndef SABERDUINO_DESKTOP_COMPUTER 
+#ifndef SABERDUINO_DESKTOP_COMPUTER
 
-#include "display.hpp"
-#include "level.hpp"
-#include "saber.hpp"
+#include "saberduino/display.hpp"
+#include "saberduino/level.hpp"
+#include "saberduino/saber.hpp"
 
 Saber saber;
 Level level;
 Display display;
 
-const Block default_blocks[10] = {
-    Block{{4, 4}, 50},  Block{{5, 5}, 100}, Block{{6, 6}, 150},
-    Block{{7, 7}, 200}, Block{{8, 8}, 250},
+Block default_blocks[10] = {
+    Block{false, {8, 8}, 100},  Block{false, {8, 12}, 200},
+    Block{false, {16, 8}, 300}, Block{false, {16, 12}, 400},
+    Block{false, {8, 8}, 500},
 };
 
 void setup() {
     saber.init();
     level.init();
-    level.load(default_blocks);
+    level.load(default_blocks, 5);
     level.start();
 }
 
