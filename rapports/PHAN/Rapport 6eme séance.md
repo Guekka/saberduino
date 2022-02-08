@@ -6,6 +6,26 @@ Phan Damien
 
 Grâce au `code` de l'exemple à peine modifié de la bibliothèque de MP6050_DMP6, on obtient des données en fonction de l'inclinaison du module MP6050.
 
+---
+title: "Vertical needs"
+author: "Hyped"
+date: "December 13, 2016"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Where's my vertical scrollbar?
+
+```{r}
+x <- matrix(nrow = 40, ncol = 4, data = 1)
+x
+```
+
+
+
 ```{r}
 
 #define INTERRUPT_PIN 2  // use pin 2 on Arduino Uno & most boards
