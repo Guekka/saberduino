@@ -17,6 +17,9 @@ add_library(saberduino
     ${INCLUDE_DIR}/saber.hpp
     ${INCLUDE_DIR}/saber.cpp
 
+    ${INCLUDE_DIR}/music.hpp
+    ${INCLUDE_DIR}/music.cpp
+
     ${INCLUDE_DIR}/printer.hpp
     ${INCLUDE_DIR}/printer.cpp
 
