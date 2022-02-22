@@ -96,8 +96,8 @@ Ces données sont ensuite récupérées par la puce de liée à l'écran.
 
 ### Les légers problèmes 
 
-On a une déconnexion partielle des fils de la mannette que l'on peut régler par souder/scotcher les fils entre eux.
+On a une déconnexion partielle lors des mouvements des fils de la mannette, que l'on peut régler par souder/scotcher les fils entre eux.
 
 A partir d'un certain temps x, le programme crash et arrête de récolter des données.
-Ceci a été réglé en règlant le moniteur série en 9600 baud.
+Ceci a été réglé en règlant le moniteur série en 9600 baud au lieu de 38400 baud.
 
