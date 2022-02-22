@@ -13,7 +13,7 @@ Nous avons vu, la séance dernière, que chaque direction sera représentée par
 ### Réinterprétation des données
 
 Jusqu'ici nous obtenions des chiffre s'affichant dans la console via la commande `Serial.print`. 
-Nous allons maintenant ajouter des booléens comme par exemple : `bool top = false` qui passe en *True* si la manette est dirigée vers la droite.
+Nous allons maintenant ajouter des booléens comme par exemple : `bool top = false` qui passe en *True* si la manette est dirigée vers le haut.
 
 Donc si l'utilisateur dirige la manette vers le haut, cette condition va être solicitée : 
 ```php
@@ -38,9 +38,9 @@ De plus, suite sûrement à une mauvaise manipulation, nous avons désappareill�
 
 Donc maintenant avec nos deux appareils connectés, je n'avais plus qu'à envoyer les données obtenues sous forme de nombre afin que Edgar puisse l'interpréter et donc effectuer le mouvement.
 
-Pour cela, on regarde si une ou plusieures valeures sont *True* puis on envoi grâce à la commande `BlueT.write()` la position (nombre) correspondant au mouvement.
-Exemple : 
-    Mouvement diagonale droite = top & right sont True --> BlueT.write(2)
+Pour cela, on regarde si une ou plusieures valeurs sont *True* puis on envoi grâce à la commande `BlueT.write()` la position (nombre) correspondant au mouvement.
+
+Exemple :     Mouvement diagonale droite = top & right sont True --> BlueT.write(2)
 
 Ces données sont ensuite récupérées par la puce de liée à l'écran.
 
