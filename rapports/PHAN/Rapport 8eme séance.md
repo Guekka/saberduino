@@ -13,7 +13,9 @@ Grâce au site Onshape, j'ai pu concevoir l'idée de la boîte servant de manett
 ![1ère partie](./res/Manette1.png)
 ![2ème partie](./res/Manette2.png)
 
+### Idée finale
 
+Suite à ma visite au FabLab, on m'a proposé d'utiliser le site [Boxes.py](https://www.festi.info/boxes.py/) afin d'obtenir un patern plus clair que l'on découpera avant la l'oral final.
 
 
 
