@@ -13,9 +13,12 @@
 struct Position {
     uint8_t x;
     uint8_t y;
+
+    friend bool operator==(Position a, Position b) { return a.x == b.x && a.y == b.y; }
 };
 
-struct Color {
+struct Color
+{
     uint8_t r;
     uint8_t g;
     uint8_t b;
@@ -46,5 +49,41 @@ inline void sleep_milli(uint16_t millis) {
     delay(millis);
 #endif
 }
+
+#ifndef PROGMEM
+#define PROGMEM
+#endif
+
+template<typename T, uint8_t Size>
+class CircularBuffer
+{
+    T data_[Size];
+    T *cur_;
+
+public:
+    CircularBuffer()
+        : cur_(data_)
+    {
+    }
+
+    void push(const T &elem)
+    {
+        *cur_ = elem;
+        if (++cur_ == data_ + Size)
+            cur_ = data_;
+    }
+
+    T &operator[](uint8_t idx) { return data_[idx]; }
+
+    uint8_t size() { return Size; }
+};
+
+#ifdef SABERDUINO_DESKTOP_COMPUTER
+template<typename Ptr>
+char pgm_read_byte_near(Ptr *data)
+{
+    return *reinterpret_cast<const char *>(data);
+}
+#endif
 
 #endif

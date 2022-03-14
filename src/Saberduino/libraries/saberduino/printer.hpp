@@ -5,8 +5,6 @@
 
 class Printer {
    public:
-    Printer();
-
     template <typename T>
     void print(T val) {
 #ifdef SABERDUINO_DESKTOP_COMPUTER

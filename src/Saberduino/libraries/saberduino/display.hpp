@@ -24,7 +24,9 @@ class Display {
 
     void draw_cube(Position topleft, uint8_t size, Color frontc, Color backc);
 
-   private:
+    Position from_placing(Position pos);
+
+private:
     static constexpr uint8_t width = 64;
     static constexpr uint8_t height = 32;
 #ifdef SABERDUINO_DESKTOP_COMPUTER

@@ -1,4 +1,13 @@
 #include "display.hpp"
+#include "printer.hpp"
+
+Position Display::from_placing(Position pos)
+{
+    // We expect x in [0, 3] and y in [0, 2]
+    pos.x *= (width * scale) / 4;
+    pos.y *= (height * scale) / 3;
+    return pos;
+}
 
 #ifdef SABERDUINO_DESKTOP_COMPUTER
 Display::Display()
@@ -65,7 +74,11 @@ void Display::draw_cube(Position topleft,
                         uint8_t size,
                         Color frontc,
                         Color backc) {
-    auto x = topleft.x;
+    // We expect x in [0, 3] and y in [0, 2]
+    topleft.x *= (width * scale) / 4;
+    topleft.y *= (height * scale) / 3;
+
+    auto x  = topleft.x;
     auto y = topleft.y;
     auto x2 = static_cast<uint8_t>(x + 2);
     auto y2 = static_cast<uint8_t>(y - 2);
@@ -140,12 +153,14 @@ void Display::end_frame() {
     window_.swapBuffers(false);
 }
 
-void Display::draw_cube(Position topleft,
-                        uint8_t size,
-                        Color frontc,
-                        Color backc) {
-    auto x = topleft.x;
-    auto y = topleft.y;
+void Display::draw_cube(Position topleft, uint8_t size, Color frontc, Color backc)
+{
+    // We expect x in [0, 3] and y in [0, 2]
+    topleft.x *= (width * scale) / 4;
+    topleft.y *= (height * scale) / 3;
+
+    auto x  = topleft.x + 2;
+    auto y  = topleft.y + 2;
     auto x2 = static_cast<uint8_t>(x + 2);
     auto y2 = static_cast<uint8_t>(y - 2);
 

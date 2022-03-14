@@ -3,21 +3,23 @@
 
 #include "base_defines.hpp"
 
-enum Direction : uint8_t {
+enum Direction : uint8_t
+{
     Left,
     Right,
     Top,
     Bottom,
 };
 
-class Saber {
-   public:
+class Saber
+{
+public:
     void init();
     Position position();
     Direction direction();
 
-   private:
-    Position prev;
+private:
+    Position prev = {1, 1};
 };
 
 #endif

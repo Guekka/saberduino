@@ -3,7 +3,7 @@
 #ifdef SABERDUINO_DESKTOP_COMPUTER
 void Music::init()
 {
-
+   
 }
 
 void Music::play(uint8_t idx)
@@ -16,10 +16,8 @@ void Music::stop()
 
 }
 #else
-constexpr uint8_t kRX = 12;
-constexpr uint8_t kTX = 13;
-
-void send_command(int8_t command, int16_t dat) {
+void send_command(int8_t command, int16_t dat)
+{
     static int8_t send_buffer[8] = {0}; //The MP3 player undestands 8 bytes orders
 
     delay(20);
@@ -32,22 +30,24 @@ void send_command(int8_t command, int16_t dat) {
     send_buffer[6] = (int8_t)(dat); //datal
     send_buffer[7] = 0xef; //ending byte
     for(auto val : send_buffer){
-        mySerial.write(val) ;
+        Serial3.write(val);
     }
 }
 
 void Music::init()
 {
+    Serial3.begin(9600);
+    stop();
 }
 
 void Music::play(uint8_t idx)
 {
-sendCommand(SINGLE_PLAY, idx);//Premier chanson sans repertoire
+    send_command(0x08, idx);
 }
 
 void Music::stop()
 {
-
+    send_command(0X16, 0);
 }
 #endif
 
